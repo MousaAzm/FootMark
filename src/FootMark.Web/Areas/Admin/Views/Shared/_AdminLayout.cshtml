@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FootMark</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <div class="sidebar-bg">
+            <div id="sidebar">
+                <div class="logo pt-4 pr-4 text-center">
+                    <img src="img/dashboard/logo.png" alt="" />
+                </div>
+                <nav>
+                    <ul class="list-unstyled components">
+                        <li>
+                            <a asp-controller="Dashboard" asp-action="Index">
+                                <span class="iconify" data-inline="false" data-icon="ic:round-dashboard"></span>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="AdminDashboard" asp-action="Themes">
+                                <span class="iconify" data-inline="false" data-icon="tabler:brand-booking"></span>
+                                <span>Themes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Dashboard" asp-action="PrepareMenu">
+                                <span class="iconify" data-inline="false" data-icon="icomoon-free:spoon-knife"></span>
+                                <span>Prepare Menu</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Dashboard" asp-action="DrinkOrder">
+                                <span class="iconify" data-inline="false" data-icon="fluent:drink-wine-16-regular"></span>
+                                <span>Drink Order</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Dashboard" asp-action="BarOptions">
+                                <span class="iconify" data-inline="false" data-icon="carbon:bar"></span>
+                                <span>Bar Options</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="arrowIcon" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+                                <span class="iconify" data-inline="true" data-icon="fluent:guest-24-filled"></span>
+                                <span>Guest</span>
+                                <i class="fas fa-angle-right"></i>
+                            </a>
+                            <ul class="collapse list-unstyled" id="pageSubmenu">
+                                <li>
+                                    <a asp-controller="Dashboard" asp-action="GuestList">Guest List</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Dashboard" asp-action="GuestTable">Guest Table</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="sidebar-icon">
+                        <button type="button" id="sidebarCollapse" class="btn btn-menu">
+                            <i class="fas fa-bars"></i>
+                            <span>MENU</span>
+                        </button>
+                    </div>
+                    <div class="header-right d-flex justify-content-between align-items-center">
+                        <div class="header-notification d-flex align-items-center">
+
+                            <span class="list-unstyled">
+                                <a href="">
+                                    <i class="far fa-comment-dots"></i>
+                                </a>
+                            </span>
+                            <span class="list-unstyled">
+                                <a href="">
+                                    <i class="far fa-bell"></i>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="profile-info d-flex align-items-center">
+                            <div class="profile-thumb pl-3 pr-3">
+                                <a href="#profileInfo" data-toggle="collapse" aria-expanded="false">
+                                    <img src="img/dashboard/profile-avator.png" alt="">
+                                </a>
+                            </div>
+                            <div class="author-name">
+                                <a href="#profileInfo" data-toggle="collapse" aria-expanded="false">
+                                    <h6 class="text-dark pr-3">Lisa</h6>
+                                </a>
+                            </div>
+                            <div class="profile-info-details">
+                                <ul class="collapse list-unstyled" id="profileInfo">
+                                    <li><a class="dropdown-item" href="">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="">Settings</a></li>
+                                    <li><a class="dropdown-item" href="">Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div>
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/admin.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+
+
+
+
+
+
