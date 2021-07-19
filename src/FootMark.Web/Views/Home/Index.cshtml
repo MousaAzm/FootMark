@@ -2,7 +2,153 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- banner-->
+<div class="banner-section">
+    <a href=""><video autoplay muted loop><source src="../img/rabat.mp4" type="video/mp4"></video></a>
+</div>
+<!-- banner-->
+<!-- main -->
+<div class="container-fluid">
+    <div class="gallery mt-5">
+        <div class="row mt-4 mb-4">
+            <div class="col-sm-4">
+                <div class="card mt-4 mb-4">
+                    <a asp-controller="Product" asp-action="Men">
+                        <div class="text-name">
+                            <span>Men</span>
+                        </div>
+                        <img class="card-img" src="/img/products/mens-stylish.jpg" alt="Card image cap">
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mt-4 mb-4">
+                    <a asp-controller="Product" asp-action="Children">
+                        <div class="text-name">
+                            <span>Children</span>
+                        </div>
+                        <img class="card-img" src="/img/products/children.jpg" alt="Card image cap">
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mt-4 mb-4">
+                    <a asp-controller="Product" asp-action="Women">
+                        <div class="text-name">
+                            <span>Women</span>
+                        </div>
+                        <img class="card-img" src="/img/products/womens-stylish.jpg" alt="Card image cap">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="Popular-categories mt-5">
+            <div class="text-center"><h4>Popular Categories</h4></div>
+            <img src="/img/Title .svg" style="width: 100%;" alt="">
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card mt-4">
+                    <a href="">
+                        <div class="text-name">
+                            <span>Boots</span>
+                        </div>
+                        <img class="card-img" src="/img/products/shoes/Boot01.jpg" alt="Card image cap">
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mt-4">
+                    <a href="">
+                        <div class="text-name">
+                            <span>Sneakers</span>
+                        </div>
+                        <img class="card-img" src="/img/products/shoes/sneakers01.jpg" alt="Card image cap">
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mt-4">
+                    <a href="">
+                        <div class="text-name">
+                            <span>Sandals & Slippers</span>
+                        </div>
+                        <img class="card-img" src="/img/products/shoes/sandals01.jpg" alt="Card image cap">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="Popular-categories show-more mt-4 text-right"><a href="">Show more</a></div>
+        <div class="Popular-brands mt-5">
+            <div class="text-center"><h4>Popular Brands</h4></div>
+            <img src="/img/Title .svg" style="width: 100%;" alt="">
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card mt-4">
+                    <div class="logo-brands">
+                        <img src="/img/products/brands/adidasoriginals_logo.png" alt="">
+                    </div>
+                    <a href=""><img class="card-img" src="/img/products/brands/adidas01.jpg" alt="Card image cap"></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mt-4">
+                    <div class="logo-brands">
+                        <img src="/img/products/brands/asics-logo.png" alt="">
+                    </div>
+                    <a href=""><img class="card-img" src="/img/products/brands/asics01.jpg" alt="Card image cap"></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mt-4">
+                    <div class="logo-brands">
+                        <img src="/img/products/brands/fila-logo.png" alt="">
+                    </div>
+                    <a href=""><img class="card-img" src="/img/products/brands/fila.jpg" alt="Card image cap"></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mt-4">
+                    <div class="logo-brands">
+                        <img src="/img/products/brands/new-balance-logo.png" alt="">
+                    </div>
+                    <a href=""><img class="card-img" src="/img/products/brands/new-balance01.jpg" alt="Card image cap"></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mt-4">
+                    <div class="logo-brands">
+                        <img src="/img/products/brands/nike-logo.png" alt="">
+                    </div>
+                    <a href=""><img class="card-img" src="/img/products/brands/nike01.jpg" alt="Card image cap"></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mt-4">
+                    <div class="logo-brands">
+                        <img src="/img/products/brands/skechers_logo.png" alt="">
+                    </div>
+                    <a href=""><img class="card-img" src="/img/products/brands/sketcher01.jpg" alt="Card image cap"></a>
+                </div>
+            </div>
+        </div>
+        <div class="Popular-brands show-more mt-4 text-right mb-4"><a href="">Show more</a></div>
+    </div>
+</div>
+<!-- main -->
+<!-- brands-->
+<div class="container-fluid">
+    <div class="bottom-brand-section">
+        <div class="row">
+            <div class="col">
+                <span><img src="img/products/brands/adidasoriginals_logo.png" alt=""></span>
+                <span><img src="img/products/brands/asics-logo.png" alt=""></span>
+                <span><img src="img/products/brands/fila-logo.png" alt=""></span>
+                <span><img src="img/products/brands/new-balance-logo.png" alt=""></span>
+                <span><img src="img/products/brands/nike-logo.png" alt=""></span>
+                <span><img src="img/products/brands/skechers_logo.png" alt=""></span>
+            </div>
+        </div>
+    </div>
 </div>

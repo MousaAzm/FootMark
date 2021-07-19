@@ -3,43 +3,218 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FootMark.Web</title>
+    <title>@ViewData["Title"] - FootMark</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FootMark.Web</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <!-- header -->
+    <div class="header-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 text-left">
+                    <!-- brand -->
+                    <div class="brands" style="display: inline-flex">
+                        <div class="mt-4 ml-2"><span><img src="~/img/ecco-black.png" style="width:100px" /></span></div>
+                        <div class="mt-4 ml-2"><span><img src="~/img/adidas.png" style="width:100px" /></span></div>
+                        <div class="mt-2 ml-2"><span><img src="~/img/nike.png" style="width:100px" /></span></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <!-- logo -->
+                    <div class="logo"><a asp-controller="Home" asp-action="Index"><span><img src="~/img/logo.png" /></span></a></div>
+                </div>
+                <div class="col-sm-3 text-right">
+                    <!-- store -->
+                    <div class="store text-white mt-4">
+                        <a href="#"><span><i class="fas fa-map-marker-alt"> Find Store</i></span></a>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
+        </div>
+    </div>
+    <!-- header -->
+    <!-- navbar -->
+    <div class="navbar-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-ms-6">
+                    <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light text-align-center" id="mainNav">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Product" asp-action="Women">Women's shoes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Product" asp-action="Men">Men's shoes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Product" asp-action="Children">Children's shoes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Product" asp-action="Brand">Brands</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-lg-4 colo-md-6 col-ms-6">
+                    <div class="user-bag">
+                        <form id="search_prodcut" method="get" asp-controller="Home" asp-action="Search">
+                            <div class="search-box">
+                                <input class="search-input" type="text" placeholder="Search" aria-label="Search" name="searchString">
+                                <a class="search-btn" href="javascript:$('#search_prodcut').submit();"><i class="fa fa-search"></i></a>
+                            </div>
+                        </form>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="nav-item">
+                                <a class="nav-link text-danger font-weight-bold" asp-area="" asp-page="">@User.Identity.Name</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="user-icon"><a asp-controller="Account" asp-action="Login"><i class="fas fa-user-plus"></i></a></div>
+                        }
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- navbar -->
+
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - FootMark.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <!-- Footer -->
+    <div class="footer-section text-center text-lg-start">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block mt-3">
+                <h5>Get connected with us on social networks:</h5>
+            </div>
+            <!-- Right -->
+            <div class="social-buttons mt-1">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="" class="me-4 text-reset">
+                            <i id="fab" class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="me-4 text-reset">
+                            <i id="fab" class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="me-4 text-reset">
+                            <i id="fab" class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="me-4 text-reset">
+                            <i id="fab" class="fab fa-linkedin"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+        <!-- Section: Links  -->
+        <section>
+            <div class="container-fluid text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <div class="mb-4">
+                            <a asp-controller="Home" asp-action="Index"><span><img src="~/img/logo.png" /></span></a>
+                        </div>
+                        <p>
+                            Here you can use rows and columns to organize your footer
+                            content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+                        <p>
+                            <a href="#!" class="text-reset">Angular</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">React</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Vue</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Laravel</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+                        <p>
+                            <a href="#!" class="text-reset">Pricing</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Settings</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Orders</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Help</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 contact">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <p><i class="fas fa-home me-3"></i> Gothenburg, G 10012, SE</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            info@example.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> + 46 234 567 88</p>
+                        <p><i class="fas fa-print me-3"></i> + 46 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+        <!-- Footer -->
+        <!-- Copyright -->
+    </div>
+    <div class="copyright text-center p-4">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="">Privacy</a>
+    </div>
+    <!-- Copyright -->
+
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
