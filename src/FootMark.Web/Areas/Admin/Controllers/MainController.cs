@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace FootMark.Web.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class MainController : Controller
     {
         // GET: MainController
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }

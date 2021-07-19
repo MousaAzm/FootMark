@@ -1,12 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FootMark</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="~/css/admin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -15,21 +18,28 @@
         <div class="sidebar-bg">
             <div id="sidebar">
                 <div class="logo pt-4 pr-4 text-center">
-                    <img src="img/dashboard/logo.png" alt="" />
+                    <img src="~/img/dashboard/logo.png" alt="" />
                 </div>
                 <nav>
                     <ul class="list-unstyled components">
                         <li>
-                            <a asp-controller="Dashboard" asp-action="Index">
+                            <a href="~/admin/main/index">
                                 <span class="iconify" data-inline="false" data-icon="ic:round-dashboard"></span>
                                 <span>Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a asp-controller="AdminDashboard" asp-action="Themes">
-                                <span class="iconify" data-inline="false" data-icon="tabler:brand-booking"></span>
-                                <span>Themes</span>
+                            <a id="arrowIcon_user" href="#user-manage" data-toggle="collapse" aria-expanded="false">
+                                <span class="iconify" data-inline="true" data-icon="fluent:guest-24-filled"></span>
+                                <span>User management</span>
+                                <i class="fas fa-angle-right"></i>
                             </a>
+                            <ul class="collapse list-unstyled" id="user-manage">
+                                <li>
+                                    <a href="~/admin/users/index">User List</a>
+                                </li>
+                            </ul>
+
                         </li>
                         <li>
                             <a asp-controller="Dashboard" asp-action="PrepareMenu">
@@ -95,7 +105,7 @@
                         <div class="profile-info d-flex align-items-center">
                             <div class="profile-thumb pl-3 pr-3">
                                 <a href="#profileInfo" data-toggle="collapse" aria-expanded="false">
-                                    <img src="img/dashboard/profile-avator.png" alt="">
+                                    <img src="~/img/dashboard/profile-avator.png" alt="">
                                 </a>
                             </div>
                             <div class="author-name">
@@ -129,11 +139,3 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-
-
-
-
-
-
-
-
