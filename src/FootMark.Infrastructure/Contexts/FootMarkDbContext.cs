@@ -1,4 +1,5 @@
-﻿using FootMark.Core.Entities.Users;
+﻿using FootMark.Application.Interfaces.Contexts;
+using FootMark.Core.Entities.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FootMark.Infrastructure.Contexts
 {
-    public class FootMarkDbContext : IdentityDbContext<AppUser>
+    public class FootMarkDbContext : IdentityDbContext<AppUser>, IFootMarkDbContext
     {
         public FootMarkDbContext(DbContextOptions<FootMarkDbContext> options) : base(options)
         {

@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\FootMark.Core\FootMark.Core.csproj" />
   </ItemGroup>
 

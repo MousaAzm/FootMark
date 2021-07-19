@@ -1,3 +1,5 @@
+using FootMark.Application.Interfaces.Contexts;
+using FootMark.Application.Interfaces.Services.Users;
 using FootMark.Core.Entities.Users;
 using FootMark.Infrastructure.Contexts;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +32,9 @@ namespace FootMark.Web
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IFootMarkDbContext, FootMarkDbContext>();
 
             services.AddDbContext<FootMarkDbContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("FootMarkConnection")));
