@@ -25,11 +25,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A91DE556-7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest.Web", "UnitTest.Web", "{99483A90-8BE8-4219-832F-2C36492E6647}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.Web", "test\UnitTest.Web\UnitTest.Web.csproj", "{FDAB09D0-AEB9-4926-A00D-013BEA804691}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Web", "test\UnitTest.Web\UnitTest.Web.csproj", "{FDAB09D0-AEB9-4926-A00D-013BEA804691}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest.Core", "UnitTest.Core", "{6EBA5AE5-125C-4854-8CB2-9487794DDD49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.Core", "test\UnitTest.Core\UnitTest.Core.csproj", "{2495A2C9-3AC6-4D49-B043-81CA5609703D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Core", "test\UnitTest.Core\UnitTest.Core.csproj", "{2495A2C9-3AC6-4D49-B043-81CA5609703D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

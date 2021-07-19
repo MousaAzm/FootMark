@@ -26,7 +26,11 @@ namespace FootMark.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRouting(options => options.LowercaseUrls = true);
+
             services.AddControllersWithViews();
+            services.AddRazorPages();
+
             services.AddDbContext<FootMarkDbContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("FootMarkConnection")));
 
@@ -34,6 +38,9 @@ namespace FootMark.Web
              .AddRoles<IdentityRole>()
              .AddEntityFrameworkStores<FootMarkDbContext>()
              .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(options =>
+            options.LoginPath = "/Account/Login");
 
         }
 
@@ -65,6 +72,8 @@ namespace FootMark.Web
                 endpoints.MapControllerRoute(
                   name: "areas",
                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
             });
         }
     }
