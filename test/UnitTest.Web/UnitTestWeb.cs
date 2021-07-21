@@ -1,3 +1,4 @@
+
 using FootMark.Application.Interfaces.Services.Users;
 using FootMark.Core.Entities.Users;
 using FootMark.Web.Areas.Admin.Controllers;
@@ -30,27 +31,28 @@ namespace UnitTest.Web
         public async Task UserControllerTest_ByUsersServices_ReturnsAViewResult()
         {
             // Arrange
-            List<UsersDto> users = new List<UsersDto>()
+            List<AppUser> users = new List<AppUser>()
             {
-                new UsersDto
+                new AppUser
                 {   Id = "c343tv4sdgs43",
                     FirstName = "testuser1",
                     Email = "test1@gmail.com"
                 },
-                  new UsersDto
+                  new AppUser
                 {
                     Id = "c343tvfj4sdgs43",
                     FirstName = "testuser2",
                     Email = "test2@gmail.com"
                 },
-                    new UsersDto
+                    new AppUser
                 {   Id = "c343tv4sdgshefh43",
                     FirstName = "testuser3",
                     Email = "test3@gmail.com"
                 },
             };
+
             var mockUserService = new Mock<IUsersService>();
-            mockUserService.Setup(p => p.GetUsersToListAsync()).ReturnsAsync(users);
+            mockUserService.Setup(p => p.GetUsersListAsync()).ReturnsAsync(users);
             var controller = new UsersController(mockUserService.Object);
             // Act
             var result = await controller.Index();

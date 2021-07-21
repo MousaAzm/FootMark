@@ -1,4 +1,5 @@
-﻿using FootMark.Application.Interfaces.Services.Users;
+﻿using AutoMapper;
+using FootMark.Application.Interfaces.Services.Users;
 using FootMark.Web.Areas.Admin.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,18 +14,19 @@ namespace FootMark.Web.Areas.Admin.Controllers
     public class UsersController : Controller
     {
         private readonly IUsersService _userService;
-
+        
         public UsersController(IUsersService userService)
         {
-            _userService = userService;
+            _userService = userService;    
         }
 
         public async Task<IActionResult> Index()
         {
-            var userList = await _userService.GetUsersToListAsync();
+            var userList = await _userService.GetUsersListAsync();
 
             var model = userList.Select(u => new UsersViewModel()
-            {
+            {   
+                Id = u.Id,
                 FirstName = u.FirstName,
                 LastName = u.LastName,
                 Email = u.Email,
@@ -35,9 +37,21 @@ namespace FootMark.Web.Areas.Admin.Controllers
         }
 
         // GET: UserController/Details/5
-        public ActionResult Details(int id)
+        public async Task <IActionResult> Details(string id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _userService.GetUserAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
         }
 
         // GET: UserController/Create
@@ -62,15 +76,27 @@ namespace FootMark.Web.Areas.Admin.Controllers
         }
 
         // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> EditUser(string id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _userService.GetUserAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
         }
 
         // POST: UserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditEditUser(int id, IFormCollection collection)
         {
             try
             {

@@ -1,4 +1,3 @@
-using FootMark.Application.Interfaces.Contexts;
 using FootMark.Application.Interfaces.Services.Users;
 using FootMark.Core.Entities.Users;
 using FootMark.Infrastructure.Contexts;
@@ -29,20 +28,25 @@ namespace FootMark.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRouting(options => options.LowercaseUrls = true);
-
+            
             services.AddControllersWithViews();
-            services.AddRazorPages();
-
+                    
             services.AddScoped<IUsersService, UsersService>();
-            services.AddScoped<IFootMarkDbContext, FootMarkDbContext>();
 
             services.AddDbContext<FootMarkDbContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("FootMarkConnection")));
 
-            services.AddDefaultIdentity<AppUser>()
-             .AddRoles<IdentityRole>()
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 7;
+                options.Password.RequireDigit = false;
+                options.Password.RequireUppercase = false;
+                options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedEmail = true;
+            })
              .AddEntityFrameworkStores<FootMarkDbContext>()
              .AddDefaultTokenProviders();
+
 
             services.ConfigureApplicationCookie(options =>
             options.LoginPath = "/Account/Login");
@@ -77,8 +81,7 @@ namespace FootMark.Web
                 endpoints.MapControllerRoute(
                   name: "areas",
                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-
-                endpoints.MapRazorPages();
+                
             });
         }
     }

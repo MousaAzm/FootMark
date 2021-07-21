@@ -39,10 +39,10 @@ namespace FootMark.Infrastructure.Data
                 CreateAsync(adminRole).Result;
             }
 
-            if (!roleManager.RoleExistsAsync("Member").Result)
+            if (!roleManager.RoleExistsAsync("Customer").Result)
             {
                 IdentityRole organizerRole = new IdentityRole();
-                organizerRole.Name = "Member";
+                organizerRole.Name = "Customer";
                 IdentityResult roleResult2 = roleManager.
                 CreateAsync(organizerRole).Result;
             }

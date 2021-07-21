@@ -1,5 +1,5 @@
-﻿using FootMark.Application.Interfaces.Contexts;
-using FootMark.Core.Entities.Users;
+﻿using FootMark.Core.Entities.Users;
+using FootMark.Infrastructure.Contexts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,48 +12,28 @@ namespace FootMark.Application.Interfaces.Services.Users
 {
     public class UsersService : IUsersService
     {
-        private readonly IFootMarkDbContext _context;
-        private readonly UserManager<AppUser> _userManager;
-
-        public UsersService(IFootMarkDbContext context, UserManager<AppUser> userManager)
+        private readonly FootMarkDbContext _context;
+        
+        public UsersService(FootMarkDbContext context)
         {
             _context = context;
-            _userManager = userManager;
         }
 
-
-        public async Task<IEnumerable<UsersDto>> GetUsersToListAsync()
+        public async Task<IEnumerable<AppUser>> GetUsersListAsync()
         {
-            return await _context.AppUsers.Select(u => new UsersDto
-            {
-                FirstName = u.FirstName,
-                LastName = u.LastName,
-                Email = u.Email,
-                PhoneNumber = u.PhoneNumber,
-                City = u.City,
-                Address = u.Address,
-                State = u.State,
-                Zip = u.Zip
-
-            }).ToListAsync();
-
-        }
-    
-
-        public async Task<UsersDto> EditUserAsync(UsersDto requst)
-        {
-            var user = await _context.AppUsers.FindAsync(requst.Id);
-
-            user.FirstName = requst.FirstName;
-            await _context.SaveChangesAsync();
-
-            return requst;
-
+            return await _context.AppUsers.ToListAsync();
         }
 
-        public UsersDto GetUserByIdAsync(string id)
+        public async Task<AppUser> GetUserAsync(string id)
         {
-            throw new NotImplementedException();
+            return await _context.AppUsers.SingleOrDefaultAsync(m => m.Id == id);
+        }
+
+        public async Task<bool> CreateUserAsync(AppUser user)
+        {
+            await _context.AppUsers.AddAsync(user);
+            var createdRowCount = await _context.SaveChangesAsync();
+            return createdRowCount > 0;
         }
     }
 }

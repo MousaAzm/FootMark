@@ -27,9 +27,9 @@
                         <td>@item.LastName</td>
                         <td>@item.Email</td>
                         <td>
-                            <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                            <a href="@Url.Action("Details", "Users", new {id = item.Id })" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                            <a href="@Url.Action("EditUser", "Users", new {id = item.Id })" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     }

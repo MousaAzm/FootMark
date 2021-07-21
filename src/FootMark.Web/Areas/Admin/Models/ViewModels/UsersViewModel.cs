@@ -7,6 +7,8 @@ namespace FootMark.Web.Areas.Admin.Models.ViewModels
 {
     public class UsersViewModel
     {
+        public string Id { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

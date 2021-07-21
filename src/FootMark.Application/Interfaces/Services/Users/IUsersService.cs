@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootMark.Core.Entities.Users;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,8 @@ namespace FootMark.Application.Interfaces.Services.Users
 {
     public interface IUsersService
     {
-        Task<IEnumerable<UsersDto>> GetUsersToListAsync();
-        UsersDto GetUserByIdAsync(string id);
-        Task<UsersDto> EditUserAsync(UsersDto requst);
+        Task<IEnumerable<AppUser>> GetUsersListAsync();
+        Task<AppUser> GetUserAsync(string id);
+        Task<bool> CreateUserAsync(AppUser requst);
     }
 }
