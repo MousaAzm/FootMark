@@ -17,12 +17,10 @@ namespace FootMark.Web.Areas.Admin.Controllers
     public class UsersController : Controller
     {
         private readonly IUserService _userService;
-        private readonly UserManager<AppUser> _userManager;
-
-        public UsersController(IUserService userService, UserManager<AppUser> userManager)
+ 
+        public UsersController(IUserService userService)
         {
-            _userService = userService;
-            _userManager = userManager;
+            _userService = userService;         
         }
 
         [HttpGet]

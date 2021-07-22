@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\FootMark.Domain\FootMark.Domain.csproj" />
     <ProjectReference Include="..\FootMark.Core\FootMark.Core.csproj" />
+    <ProjectReference Include="..\FootMark.Domain\FootMark.Domain.csproj" />
     <ProjectReference Include="..\FootMark.Infrastructure\FootMark.Infrastructure.csproj" />
   </ItemGroup>
 

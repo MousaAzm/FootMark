@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FootMark.Application\FootMark.Application.csproj" />
+    <ProjectReference Include="..\FootMark.Domain\FootMark.Domain.csproj" />
     <ProjectReference Include="..\FootMark.Infrastructure\FootMark.Infrastructure.csproj" />
   </ItemGroup>
 
