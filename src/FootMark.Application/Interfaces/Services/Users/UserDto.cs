@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace FootMark.Web.Areas.Admin.Models.ViewModels
+namespace FootMark.Application.Interfaces.Services.Users
 {
-    public class UsersViewModel
+    public class UserDto
     {
         public string Id { get; set; }
 
@@ -13,9 +14,13 @@ namespace FootMark.Web.Areas.Admin.Models.ViewModels
 
         public string LastName { get; set; }
 
+        public string UserName { get; set; }
+
         public string Email { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public DateTime DateAccount { get; set; }
 
         public string Address { get; set; }
 

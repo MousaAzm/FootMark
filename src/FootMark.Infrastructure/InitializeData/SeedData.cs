@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FootMark.Infrastructure.Data
+namespace FootMark.Infrastructure.InitializeData
 {
     public static class SeedData
     {

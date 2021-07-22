@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace FootMark.Core.Entities.Users
 {
-    public class AppUser :IdentityUser
+    public class AppUser : IdentityUser
     {
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public DateTime DateAccount { get; set; }
 
         public string Address { get; set; }
 

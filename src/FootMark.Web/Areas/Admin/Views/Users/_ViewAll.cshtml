@@ -1,0 +1,36 @@
+﻿@using FootMark.Application.Interfaces.Services.Users
+@model IEnumerable<UserDto>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">FirstName</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row"></th>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.Email</td>
+                            <td>
+                                <button onclick="showInPopup('@Url.Action("Details", "Users", new {id = item.Id }, Context.Request.Scheme)')" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                <a asp-action="EditUser" asp-controller="Users" asp-route-id="@item.Id"  class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                <button onclick="showInPopup('@Url.Action("Delete", "Users", new {id = item.Id }, Context.Request.Scheme)')" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

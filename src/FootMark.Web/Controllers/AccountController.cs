@@ -3,7 +3,6 @@ using FootMark.Web.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -47,6 +46,7 @@ namespace FootMark.Web.Controllers
                     City = model.City,
                     State = model.State,
                     Zip = model.Zip,
+                    DateAccount = DateTime.Now,
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);

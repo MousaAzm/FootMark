@@ -24,8 +24,4 @@
     <ProjectReference Include="..\FootMark.Infrastructure\FootMark.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
-  </ItemGroup>
-
 </Project>

@@ -1,5 +1,6 @@
 using FootMark.Application.Interfaces.Services.Users;
 using FootMark.Core.Entities.Users;
+using FootMark.Domain.Repositories.Users;
 using FootMark.Infrastructure.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,7 +32,8 @@ namespace FootMark.Web
             
             services.AddControllersWithViews();
                     
-            services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddDbContext<FootMarkDbContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("FootMarkConnection")));
@@ -75,12 +77,12 @@ namespace FootMark.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                 name: "areas",
+                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
-                  name: "areas",
-                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");       
                 
             });
         }

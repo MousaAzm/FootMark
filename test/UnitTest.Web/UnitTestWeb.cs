@@ -51,7 +51,7 @@ namespace UnitTest.Web
                 },
             };
 
-            var mockUserService = new Mock<IUsersService>();
+            var mockUserService = new Mock<IUserService>();
             mockUserService.Setup(p => p.GetUsersListAsync()).ReturnsAsync(users);
             var controller = new UsersController(mockUserService.Object);
             // Act
