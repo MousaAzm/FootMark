@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FootMark.Domain\FootMark.Domain.csproj" />
+    <ProjectReference Include="..\FootMark.Repositories\FootMark.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FootMark.Core.Entities.Users
+namespace FootMark.Domain.Entities.Users
 {
     public class AppUser : IdentityUser
     {

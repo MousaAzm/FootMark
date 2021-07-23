@@ -1,4 +1,4 @@
-﻿using FootMark.Core.Entities.Users;
+﻿using FootMark.Domain.Entities.Users;
 using FootMark.Web.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

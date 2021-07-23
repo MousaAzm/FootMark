@@ -21,8 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FootMark.Application\FootMark.Application.csproj" />
-    <ProjectReference Include="..\..\src\FootMark.Core\FootMark.Core.csproj" />
     <ProjectReference Include="..\..\src\FootMark.Web\FootMark.Web.csproj" />
   </ItemGroup>
 

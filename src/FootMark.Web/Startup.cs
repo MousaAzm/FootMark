@@ -1,7 +1,7 @@
-using FootMark.Application.Interfaces.Services.Users;
-using FootMark.Core.Entities.Users;
-using FootMark.Domain.Repositories.Users;
-using FootMark.Infrastructure.Contexts;
+using FootMark.Domain.Data.Contexts;
+using FootMark.Domain.Entities.Users;
+using FootMark.Repositories.Interfaces.Users;
+using FootMark.Services.Interfaces.Users;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

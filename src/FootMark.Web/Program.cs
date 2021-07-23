@@ -1,6 +1,6 @@
-using FootMark.Core.Entities.Users;
-using FootMark.Infrastructure.Contexts;
-using FootMark.Infrastructure.InitializeData;
+using FootMark.Domain.Data.Contexts;
+using FootMark.Domain.Data.InitializeData;
+using FootMark.Domain.Entities.Users;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;

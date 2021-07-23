@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FootMark.Core.Entities.Products
+namespace FootMark.Domain.Entities.Products
 {
     public class Product
     {

@@ -1,6 +1,4 @@
-
-using FootMark.Application.Interfaces.Services.Users;
-using FootMark.Core.Entities.Users;
+using FootMark.Domain.Entities.Users;
 using FootMark.Web.Areas.Admin.Controllers;
 using FootMark.Web.Areas.Admin.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;

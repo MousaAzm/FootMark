@@ -1,4 +1,5 @@
-﻿using FootMark.Core.Entities.Users;
+﻿using FootMark.Domain.Entities.Products;
+using FootMark.Domain.Entities.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FootMark.Infrastructure.Contexts
+namespace FootMark.Domain.Data.Contexts
 {
     public class FootMarkDbContext : IdentityDbContext<AppUser>
     {
@@ -17,7 +18,7 @@ namespace FootMark.Infrastructure.Contexts
         }
 
         public DbSet<AppUser> AppUsers { get; set; }
-
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

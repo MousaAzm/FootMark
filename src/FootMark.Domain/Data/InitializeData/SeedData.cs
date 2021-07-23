@@ -1,5 +1,5 @@
-﻿using FootMark.Core.Entities.Users;
-using FootMark.Infrastructure.Contexts;
+﻿using FootMark.Domain.Data.Contexts;
+using FootMark.Domain.Entities.Users;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FootMark.Infrastructure.InitializeData
+namespace FootMark.Domain.Data.InitializeData
 {
     public static class SeedData
     {

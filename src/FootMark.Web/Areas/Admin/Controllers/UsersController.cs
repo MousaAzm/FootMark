@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using FootMark.Application.Interfaces.Services.Users;
-using FootMark.Core.Entities.Users;
+﻿using FootMark.Services.Interfaces.Users;
 using FootMark.Web.Areas.Admin.Helper;
 using FootMark.Web.Areas.Admin.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -89,19 +87,12 @@ namespace FootMark.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditUser(string id, [Bind("FirstName,LastName,UserName")] UserDto user)
+        public async Task<IActionResult> EditUser(UserDto user)
         {
-            if (id != user.Id)
-            {
-                return NotFound();
-            }
-
+          
             if (ModelState.IsValid)
             {
-
                 await _userService.UpdateAsync(user);
-
-
                 return RedirectToAction(nameof(Index));
             }
             return View(user);

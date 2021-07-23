@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FootMark.Application.Interfaces.Services.Users
+namespace FootMark.Services.Interfaces.Users
 {
     public class UserDto
     {
