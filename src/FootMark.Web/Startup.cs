@@ -1,7 +1,4 @@
-using FootMark.Domain.Data.Contexts;
-using FootMark.Domain.Entities.Users;
-using FootMark.Repositories.Interfaces.Users;
-using FootMark.Services.Interfaces.Users;
+using FootMark.Application.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,24 +28,12 @@ namespace FootMark.Web
             services.AddRouting(options => options.LowercaseUrls = true);
             
             services.AddControllersWithViews();
-                    
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserRepository, UserRepository>();
 
-            services.AddDbContext<FootMarkDbContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("FootMarkConnection")));
+            services.AddServices();
 
-            services.AddIdentity<AppUser, IdentityRole>(options =>
-            {
-                options.Password.RequiredLength = 7;
-                options.Password.RequireDigit = false;
-                options.Password.RequireUppercase = false;
-                options.User.RequireUniqueEmail = true;
-                options.SignIn.RequireConfirmedEmail = true;
-            })
-             .AddEntityFrameworkStores<FootMarkDbContext>()
-             .AddDefaultTokenProviders();
+            services.AddAutoMapperConfiguration();
 
+            services.AddDbConfiguration(Configuration);
 
             services.ConfigureApplicationCookie(options =>
             options.LoginPath = "/Account/Login");

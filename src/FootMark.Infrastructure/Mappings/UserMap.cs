@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-
 namespace FootMark.Infrastructure.Mappings
 {
     public class UserMap : IEntityTypeConfiguration<AppUser>
