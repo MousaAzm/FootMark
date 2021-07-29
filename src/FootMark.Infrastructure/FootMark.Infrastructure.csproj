@@ -6,10 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
+    <PackageReference Include="NetDevPack" Version="5.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\FootMark.Domain\FootMark.Domain.csproj" />
+    <ProjectReference Include="..\FootMark.Domain\FootMark.Domain.csproj" />
   </ItemGroup>
 
 </Project>
