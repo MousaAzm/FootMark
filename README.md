@@ -1,25 +1,25 @@
-# ✨FootMark✨
-### _E-Commerce Asp.Net Core MVC Multi Layer Project_
+#e-Commerce
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)]()
+e-Commerce Asp.Net Core MVC  Multi Layer Project
 
-## Project Directory
--------------------------------------
-    |FootMark-eCommerce[Solution]| 
-                           |
-                           |
-                           |-------src 
-                           |        | 
-                           |        |---FootMark.Domain 
-                           |        |
-                           |        |---FootMark.Application
-                           |        |
-                           |        |---FootMark.Infrastructure
-                           |        |
-                           |        |---FootMark.UI-Web
-                           |       
-                           |-------test
-                                    |
-                                    |---UnitTest.Application
-                                    |
-                                    |---FootMark.UI-Web
+#Project Directory
+
+e-Commerce[Solution]
+		|
+		|
+		|------src
+		|	|	
+		|	|---FootMark.Domain
+		|	|
+		|	|---FootMark.Repositories
+		|	|
+		|	|---FootMark.Services
+		|	|	
+		|	|---FootMark.Web
+		|
+		|		
+		|------test
+			|
+			|---UnitTest.Web
+			|	
+			|---?
