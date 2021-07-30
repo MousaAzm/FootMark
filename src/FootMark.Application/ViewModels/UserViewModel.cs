@@ -14,8 +14,8 @@ namespace FootMark.Application.ViewModels
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "The Name is Required")]
-        [MinLength(2)]
-        [MaxLength(100)]
+        [MinLength(3)]
+        [MaxLength(120)]
         [DisplayName("Name")]
         public string Name { get; set; }
 

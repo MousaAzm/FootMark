@@ -14,9 +14,9 @@ namespace FootMark.Application.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<UserViewModel, RegisterNewUserCommand>()
-                .ConstructUsing(c => new RegisterNewUserCommand(c.Name, c.Email, c.CreateDate));
+                .ConstructUsing(c => new RegisterNewUserCommand(c.Name, c.Email, c.CreateDate.Date));
             CreateMap<UserViewModel, UpdateUserCommand>()
-                .ConstructUsing(c => new UpdateUserCommand(c.Id, c.Name, c.Email, c.CreateDate));
+                .ConstructUsing(c => new UpdateUserCommand(c.Id, c.Name, c.Email, c.CreateDate.Date));
         }
     }
 }
