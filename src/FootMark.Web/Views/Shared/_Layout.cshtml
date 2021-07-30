@@ -72,13 +72,11 @@
                         </form>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <div class="nav-item">
-                                <a class="nav-link text-danger font-weight-bold" asp-area="" asp-page="">@User.Identity.Name</a>
-                            </div>
+                            <partial name="_UserProfileView" />
                         }
                         else
                         {
-                            <div class="user-icon"><a asp-controller="Account" asp-action="Login"><i class="fas fa-user-plus"></i></a></div>
+                            <div class="user-icon"><a asp-page="/Account/Login"><i class="fas fa-user-plus"></i></a></div>
                         }
 
                         <div class="dropdown bag-dropdown">
@@ -219,11 +217,10 @@
     </div>
     <!-- Copyright -->
 
-
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

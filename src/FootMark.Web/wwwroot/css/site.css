@@ -118,6 +118,25 @@ a {
         background-color: #fd4d5a !important;
     }
 
+.profile-info-details {
+    position: absolute;
+    right: 0;
+    top: 78px;
+    z-index: 100;
+    min-width: 200px;
+    border-radius: 5px;
+    background: #fff;
+}
+
+    .profile-info-details .collapse {
+        box-shadow: 0 0 5px rgb(237 241 244 / 70%);
+        -webkit-box-shadow: 0 0 5px rgb(237 241 244 / 70%);
+    }
+
+    .profile-info-details ul li a:hover, .profile-info-details ul li form a input:hover {
+        color: #fff;
+        background-color: #fd4d5a;
+    }
 /* navbar */
 .navbar-section {
     background-color: #28292c;

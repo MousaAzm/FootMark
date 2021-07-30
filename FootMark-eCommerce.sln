@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootMark.Infrastructure", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest.Application", "UnitTest.Application", "{7F1D3239-0DA1-47AF-8794-6E4F9EF02E93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.Application", "test\UnitTest.Application\UnitTest.Application.csproj", "{7790C6C5-4E1C-4661-913D-E64D52B10482}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Application", "test\UnitTest.Application\UnitTest.Application.csproj", "{7790C6C5-4E1C-4661-913D-E64D52B10482}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

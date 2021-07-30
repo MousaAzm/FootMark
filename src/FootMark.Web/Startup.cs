@@ -1,8 +1,10 @@
 using FootMark.Application.Configurations;
+using FootMark.Infrastructure.Contexts;
 using FootMark.Web.Configure;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +26,8 @@ namespace FootMark.Web
 
             services.AddControllersWithViews();
 
+            services.AddRazorPages();
+
             services.AddServices();
 
             services.AddMediatR(typeof(Startup));
@@ -31,6 +35,11 @@ namespace FootMark.Web
             services.AddAutoMapperConfiguration();
 
             services.AddDbConfiguration(Configuration);
+
+            services.AddDefaultIdentity<IdentityUser>()
+              .AddRoles<IdentityRole>()
+              .AddEntityFrameworkStores<FootMarkDbContext>()
+              .AddDefaultTokenProviders();
 
             services.ConfigureApplicationCookie(options =>
             options.LoginPath = "/Account/Login");
@@ -66,6 +75,7 @@ namespace FootMark.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+                endpoints.MapRazorPages();
             });
         }
     }

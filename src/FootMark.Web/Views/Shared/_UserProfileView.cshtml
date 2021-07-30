@@ -1,0 +1,25 @@
+﻿
+
+
+<div class="profile-info d-flex align-items-center">
+    
+    <div class="author-name">
+        <a href="#profileInfo" data-toggle="collapse" aria-expanded="false">
+            <div class="nav-item">
+                <p class="nav-link text-danger font-weight-bold m-0">@User.Identity.Name</p>
+            </div>
+        </a>
+    </div>
+    <div class="profile-info-details">
+        <ul class="collapse list-unstyled" id="profileInfo">
+            <li><a class="dropdown-item" href="">My Profile</a></li>
+            <li><a class="dropdown-item" href="">Settings</a></li>
+            <li>
+                <form asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <a><input type="submit" class="dropdown-item" value="Log Out"></a> 
+                </form>          
+            </li>
+        </ul>
+    </div>
+</div>
+

@@ -1,6 +1,8 @@
 ﻿using FluentValidation.Results;
 using FootMark.Domain.Models.Users;
 using FootMark.Infrastructure.Mappings;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NetDevPack.Data;
 using NetDevPack.Domain;
@@ -12,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace FootMark.Infrastructure.Contexts
 {
-    public class FootMarkDbContext : DbContext, IUnitOfWork
+    public class FootMarkDbContext : IdentityDbContext<IdentityUser>, IUnitOfWork
     {
         private readonly IMediatorHandler _mediator;
 
