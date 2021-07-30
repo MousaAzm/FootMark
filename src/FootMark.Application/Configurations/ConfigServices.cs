@@ -5,15 +5,11 @@ using FootMark.Application.Services;
 using FootMark.Domain.Commands;
 using FootMark.Domain.Events;
 using FootMark.Domain.Interfaces;
+using FootMark.Infrastructure.Contexts;
 using FootMark.Infrastructure.Repository;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using NetDevPack.Mediator;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FootMark.Application.Configurations
 {
@@ -22,9 +18,10 @@ namespace FootMark.Application.Configurations
         public static void AddServices(this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserRepository, UserRepository>();
-
             services.AddScoped<IMediatorHandler, InMemoryBus>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<FootMarkDbContext>();       
 
             services.AddScoped<INotificationHandler<UserRegisteredEvent>, UserEventHandler>();
             services.AddScoped<INotificationHandler<UserUpdatedEvent>, UserEventHandler>();

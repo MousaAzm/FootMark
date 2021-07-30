@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FootMark.Web.Models.ViewModels
 {
@@ -52,7 +49,7 @@ namespace FootMark.Web.Models.ViewModels
         [Display(Name = "Zip")]
         public string Zip { get; set; }
 
-        [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime GetTime { get; set; }
     }
 }

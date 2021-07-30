@@ -1,10 +1,8 @@
-﻿using System;
-using FluentValidation.Results;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation.Results;
 using FootMark.Application.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FootMark.Application.Interfaces
 {
@@ -17,6 +15,5 @@ namespace FootMark.Application.Interfaces
         Task<ValidationResult> UpdateAsync(UserViewModel user);
         Task<ValidationResult> RemoveAsync(Guid id);
 
-        
     }
 }

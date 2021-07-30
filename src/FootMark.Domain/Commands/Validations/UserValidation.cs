@@ -1,9 +1,5 @@
 ﻿using FluentValidation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FootMark.Domain.Commands.Validations
 {
@@ -13,7 +9,7 @@ namespace FootMark.Domain.Commands.Validations
         {
             RuleFor(c => c.Name)
                 .NotEmpty()
-                .Length(3, 120).WithMessage("The Name must have between 3 and 120 characters");
+                .Length(2,100).WithMessage("The Name must have between 3 and 120 characters");
         }
 
 

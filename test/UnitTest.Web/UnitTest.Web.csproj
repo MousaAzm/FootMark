@@ -20,8 +20,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\FootMark.Web\FootMark.Web.csproj" />
-  </ItemGroup>
-
 </Project>

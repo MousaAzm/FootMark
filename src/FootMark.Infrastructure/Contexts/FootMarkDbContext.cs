@@ -6,11 +6,9 @@ using NetDevPack.Data;
 using NetDevPack.Domain;
 using NetDevPack.Mediator;
 using NetDevPack.Messaging;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+
 
 namespace FootMark.Infrastructure.Contexts
 {
@@ -21,14 +19,15 @@ namespace FootMark.Infrastructure.Contexts
         public FootMarkDbContext(DbContextOptions<FootMarkDbContext> options, IMediatorHandler mediator) : base(options)
         {
             _mediator = mediator;
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
         public DbSet<AppUser> AppUsers { get; set; }
- 
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
 
             builder.Ignore<ValidationResult>();
             builder.Ignore<Event>();
@@ -44,7 +43,7 @@ namespace FootMark.Infrastructure.Contexts
 
         public async Task<bool> Commit()
         {
-            
+
             await _mediator.PublishDomainEvents(this).ConfigureAwait(false);
 
             var success = await SaveChangesAsync() > 0;
@@ -69,7 +68,8 @@ namespace FootMark.Infrastructure.Contexts
                 .ForEach(entity => entity.Entity.ClearDomainEvents());
 
             var tasks = domainEvents
-                .Select(async (domainEvent) => {
+                .Select(async (domainEvent) =>
+                {
                     await mediator.PublishEvent(domainEvent);
                 });
 

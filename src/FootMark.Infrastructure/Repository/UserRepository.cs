@@ -5,8 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using NetDevPack.Data;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FootMark.Infrastructure.Repository
@@ -59,6 +57,6 @@ namespace FootMark.Infrastructure.Repository
         {
             _context.Dispose();
         }
-  
+
     }
 }

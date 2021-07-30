@@ -39,35 +39,35 @@
 
                         </li>
                         <li>
-                            <a asp-controller="Dashboard" asp-action="PrepareMenu">
-                                <span class="iconify" data-inline="false" data-icon="icomoon-free:spoon-knife"></span>
-                                <span>Prepare Menu</span>
+                            <a href="#">
+                                <span class="iconify" data-inline="false" data-icon="fluent:checkbox-checked-16-regular"></span>
+                                <span>Exemple</span>
                             </a>
                         </li>
                         <li>
-                            <a asp-controller="Dashboard" asp-action="DrinkOrder">
-                                <span class="iconify" data-inline="false" data-icon="fluent:drink-wine-16-regular"></span>
-                                <span>Drink Order</span>
+                            <a href="#">
+                                <span class="iconify" data-inline="false" data-icon="fluent:checkbox-checked-16-regular"></span>
+                                <span>Exemple</span>
                             </a>
                         </li>
                         <li>
-                            <a asp-controller="Dashboard" asp-action="BarOptions">
-                                <span class="iconify" data-inline="false" data-icon="carbon:bar"></span>
-                                <span>Bar Options</span>
+                            <a href="#">
+                                <span class="iconify" data-inline="false" data-icon="fluent:checkbox-checked-16-regular"></span>
+                                <span>Exemple</span>
                             </a>
                         </li>
                         <li>
                             <a id="arrowIcon" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                                <span class="iconify" data-inline="true" data-icon="fluent:guest-24-filled"></span>
-                                <span>Guest</span>
+                                <span class="iconify" data-inline="false" data-icon="fluent:checkbox-checked-16-regular"></span>
+                                <span>Exemple</span>
                                 <i class="fas fa-angle-right"></i>
                             </a>
                             <ul class="collapse list-unstyled" id="pageSubmenu">
                                 <li>
-                                    <a asp-controller="Dashboard" asp-action="GuestList">Guest List</a>
+                                    <a href="#">Exemple_1</a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Dashboard" asp-action="GuestTable">Guest Table</a>
+                                    <a href="#">Exemple_2</a>
                                 </li>
                             </ul>
                         </li>
@@ -128,23 +128,12 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="form-modal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body"></div>
-            </div>
-        </div>
-    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/admin.js" asp-append-version="true"></script>
+    <script src="~/js/admin.js"></script>
+    <script src="~/js/site.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

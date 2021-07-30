@@ -1,26 +1,22 @@
-﻿using FootMark.Services.Interfaces.Users;
-using FootMark.Web.Areas.Admin.Helper;
-using FootMark.Web.Areas.Admin.Models.ViewModels;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using FootMark.Application.Interfaces;
+using FootMark.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace FootMark.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
         private readonly IUserService _userService;
- 
+
         public UsersController(IUserService userService)
         {
-            _userService = userService;         
+            _userService = userService;
         }
 
+        // GET: UserController/Index
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -29,25 +25,20 @@ namespace FootMark.Web.Areas.Admin.Controllers
 
         // GET: UserController/Details/5
         [HttpGet]
-        public async Task <IActionResult> Details(string id)
+        public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var user = await _userService.GetByIdAsync(id);
+            var userViewModel = await _userService.GetByIdAsync(id.Value);
 
-            if (user == null)
-            {
-                return NotFound();
-            }
+            if (userViewModel == null) return NotFound();
 
-            return View(user);
+            return View(userViewModel);
         }
 
         // GET: UserController/Create
-        public ActionResult CreateUser()
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }
@@ -55,75 +46,74 @@ namespace FootMark.Web.Areas.Admin.Controllers
         // POST: UserController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateUser([Bind("FirstName,LastName,UserName")] UserDto user)
+        public async Task<IActionResult> Create(UserViewModel user)
         {
 
-            if (ModelState.IsValid)
-            {
-                await _userService.AddAsync(user);
+            if (!ModelState.IsValid) return View(user);
 
-                return RedirectToAction(nameof(Index));
-            }
+            if (ResponseHasErrors(await _userService.AddAsync(user)))
+                return View(user);
+
+            ViewBag.Sucesso = "User Registered!";
+
             return View(user);
         }
 
+        // GET: UserController/Edit/3
         [HttpGet]
-        public async Task<IActionResult> EditUser(string id)
+        public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var user = await _userService.GetByIdAsync(id);
+            var user = await _userService.GetByIdAsync(id.Value);
 
-            if (user == null)
-            {
-                return NotFound();
-            }
+            if (user == null) return NotFound();
+
             return View(user);
         }
 
-
+        // POST: UserController/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditUser(UserDto user)
+        public async Task<IActionResult> Edit(UserViewModel user)
         {
-          
-            if (ModelState.IsValid)
-            {
-                await _userService.UpdateAsync(user);
+
+            if (!ModelState.IsValid) return NotFound();
+
+            if (ResponseHasErrors(await _userService.UpdateAsync(user)))
                 return RedirectToAction(nameof(Index));
-            }
-            return View(user);
-        }
 
-        [HttpGet, ActionName("Delete")]
-        public async Task<IActionResult> DeleteUser(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            ViewBag.Sucesso = "User Updated!";
 
-            var user = await _userService.GetByIdAsync(id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(string id)
-        {
-            var user = await _userService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
-     
+
+        // GET: UserController/Delete/3
+        [HttpGet, ActionName("Delete")]
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            if (id == null) return NotFound();
+
+            var user = await _userService.GetByIdAsync(id.Value);
+
+            if (user == null) return NotFound();
+
+            return View(user);
+        }
+
+        // Post: UserController/Delete
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        {
+            if (ResponseHasErrors(await _userService.RemoveAsync(id)))
+                return View(await _userService.GetByIdAsync(id));
+
+            ViewBag.Sucesso = "User Removed!";
+
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 
 }

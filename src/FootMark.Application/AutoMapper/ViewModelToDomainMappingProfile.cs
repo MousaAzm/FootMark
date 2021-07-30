@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using FootMark.Application.ViewModels;
 using FootMark.Domain.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FootMark.Application.AutoMapper
 {

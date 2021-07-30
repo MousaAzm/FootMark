@@ -1,12 +1,9 @@
-﻿using FootMark.Domain.Entities.Users;
+﻿using FootMark.Domain.Models.Users;
 using FootMark.Web.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace FootMark.Web.Controllers
@@ -37,16 +34,9 @@ namespace FootMark.Web.Controllers
 
                 var user = new AppUser
                 {
-                    UserName = model.Email,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Email = model.Email,
-                    Address = model.Address,
-                    PhoneNumber = model.PhoneNumber,
-                    City = model.City,
-                    State = model.State,
-                    Zip = model.Zip,
-                    DateAccount = DateTime.Now,
+                    Name = model.Email,                 
+                    Email = model.Email,               
+                    CreateDate = DateTime.Now,
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -55,7 +45,7 @@ namespace FootMark.Web.Controllers
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     await _userManager.AddToRoleAsync(user, "Customer");
                     return RedirectToAction("Index", "Home");
-                  
+
                 }
                 foreach (var error in result.Errors)
                 {
@@ -63,9 +53,9 @@ namespace FootMark.Web.Controllers
                 }
                 ModelState.AddModelError("Email", "Email address already exists");
             }
-           
+
             return View(model);
-            
+
         }
 
 

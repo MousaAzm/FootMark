@@ -1,16 +1,10 @@
-using FootMark.Domain.Data.Contexts;
-using FootMark.Domain.Data.InitializeData;
-using FootMark.Domain.Entities.Users;
+using FootMark.Infrastructure.Contexts;
+using FootMark.Infrastructure.InitializeData;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FootMark.Web
 {
@@ -33,9 +27,7 @@ namespace FootMark.Web
                 try
                 {
                     var context = services.GetRequiredService<FootMarkDbContext>();
-                    var userManager = services.GetRequiredService<UserManager<AppUser>>();
-                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-                    SeedData.Seeding(context, userManager, roleManager);
+                    SeedData.Seeding(context);
                 }
                 catch (Exception ex)
                 {

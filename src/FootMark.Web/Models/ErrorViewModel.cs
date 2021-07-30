@@ -1,5 +1,3 @@
-using System;
-
 namespace FootMark.Web.Models
 {
     public class ErrorViewModel
