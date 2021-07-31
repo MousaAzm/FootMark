@@ -15,9 +15,9 @@ namespace FootMark.Application.ViewModels
         [DisplayName("Name")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "The E-mail is Required")]
+        [Required(ErrorMessage = "The Email is Required")]
         [EmailAddress]
-        [DisplayName("E-mail")]
+        [DisplayName("Email")]
         public string Email { get; set; }
 
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]

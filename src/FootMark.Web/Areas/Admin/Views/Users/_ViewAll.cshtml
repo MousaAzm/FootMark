@@ -1,33 +1,40 @@
 ﻿@model IEnumerable<FootMark.Application.ViewModels.UserViewModel>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <table class="table table-bordered text-center">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <a asp-controller="Users" asp-action="Create" class="btn btn-info text-light">Add New User</a>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered text-center">
+                    <thead class="table-dark">
                         <tr>
-                            <th scope="row"></th>
-                            <td>@item.Name</td>                      
-                            <td>@item.Email</td>
-                            <td>
-                                <a asp-controller="Users" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"><i class="far fa-eye"></i></a>
-                                <a asp-controller="Users" asp-action="Edit" asp-route-id="@item.Id"   class="btn btn-success"><i class="fas fa-edit"></i></a>
-                                <a asp-controller="Users" asp-action="Delete" asp-route-id="@item.Id"  class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
-                            </td>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Actions</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="row"></th>
+                                <td>@item.Name</td>
+                                <td>@item.Email</td>
+                                <td>
+                                    <a asp-controller="Users" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                                    <a asp-controller="Users" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                    <a asp-controller="Users" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>

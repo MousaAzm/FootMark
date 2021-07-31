@@ -52,11 +52,11 @@ namespace FootMark.Web.Areas.Admin.Controllers
             if (!ModelState.IsValid) return View(user);
 
             if (ResponseHasErrors(await _userService.AddAsync(user)))
-                return View(user);
+                return RedirectToAction(nameof(Index));
 
             ViewBag.Sucesso = "User Registered!";
 
-            return View(user);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: UserController/Edit/3
@@ -78,7 +78,7 @@ namespace FootMark.Web.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(UserViewModel user)
         {
 
-            if (!ModelState.IsValid) return NotFound();
+            if (!ModelState.IsValid) return View(user);
 
             if (ResponseHasErrors(await _userService.UpdateAsync(user)))
                 return RedirectToAction(nameof(Index));

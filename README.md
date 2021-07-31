@@ -1,5 +1,5 @@
 # ✨FootMark✨
-### _E-Commerce Asp.Net Core MVC Multi Layer Project_
+### _Asp.Net Core MVC Multi Layer Project_
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)]()
 
