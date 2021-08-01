@@ -21,7 +21,7 @@ namespace FootMark.Application.Configurations
             services.AddScoped<IMediatorHandler, InMemoryBus>();
 
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<FootMarkDbContext>();       
+            services.AddScoped<FootMarkDbContext>();
 
             services.AddScoped<INotificationHandler<UserRegisteredEvent>, UserEventHandler>();
             services.AddScoped<INotificationHandler<UserUpdatedEvent>, UserEventHandler>();

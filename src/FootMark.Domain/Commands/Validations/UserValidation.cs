@@ -9,7 +9,7 @@ namespace FootMark.Domain.Commands.Validations
         {
             RuleFor(c => c.Name)
                 .NotEmpty()
-                .Length(2,100).WithMessage("The Name must have between 3 and 120 characters");
+                .Length(2, 100).WithMessage("The Name must have between 3 and 120 characters");
         }
 
 

@@ -20,7 +20,5 @@
                            |       
                            |-------test
                                     |
-                                    |---UnitTest.Application
-                                    |
-                                    |---FootMark.UI-Web
+                                    |---UnitTest.UI-Web
 

@@ -27,10 +27,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FootMark.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootMark.Infrastructure", "src\FootMark.Infrastructure\FootMark.Infrastructure.csproj", "{ECD448E2-C29A-4208-9E3D-40379A367C10}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest.Application", "UnitTest.Application", "{7F1D3239-0DA1-47AF-8794-6E4F9EF02E93}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Application", "test\UnitTest.Application\UnitTest.Application.csproj", "{7790C6C5-4E1C-4661-913D-E64D52B10482}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,10 +53,6 @@ Global
 		{ECD448E2-C29A-4208-9E3D-40379A367C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECD448E2-C29A-4208-9E3D-40379A367C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECD448E2-C29A-4208-9E3D-40379A367C10}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7790C6C5-4E1C-4661-913D-E64D52B10482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7790C6C5-4E1C-4661-913D-E64D52B10482}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7790C6C5-4E1C-4661-913D-E64D52B10482}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7790C6C5-4E1C-4661-913D-E64D52B10482}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,8 +68,6 @@ Global
 		{7A5723D9-DBC5-4FF0-BE56-FCE631A08928} = {F233C22A-CEF7-4A9F-AF48-AB390C1AA9EF}
 		{538110B6-BCB8-4F9D-9FF9-0FB2296F28B9} = {ADFC928D-D219-43BB-81CE-2F48D7F495DB}
 		{ECD448E2-C29A-4208-9E3D-40379A367C10} = {538110B6-BCB8-4F9D-9FF9-0FB2296F28B9}
-		{7F1D3239-0DA1-47AF-8794-6E4F9EF02E93} = {A91DE556-7912-4ABD-B08F-7CBB333AE6DA}
-		{7790C6C5-4E1C-4661-913D-E64D52B10482} = {7F1D3239-0DA1-47AF-8794-6E4F9EF02E93}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1844CE8-5FE4-4F27-ADF1-198776BA79BA}
